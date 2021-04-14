@@ -1,5 +1,5 @@
-#include "../inc/backend.h"
-#include "../inc/frontend.h"
+#include "backend.h"
+#include "frontend.h"
 #include <ncurses.h>
 
 int main() {
