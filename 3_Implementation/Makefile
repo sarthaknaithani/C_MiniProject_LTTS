@@ -29,7 +29,7 @@ endif
 
 all:$(BUILD_DIR)
 	
-	gcc -o snake src/main.c src/backend.c src/frontend.c -lncurses
+	gcc -o snake main.c src/backend.c src/frontend.c -lncurses
 
 run: all
 	./snake
