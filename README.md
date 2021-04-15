@@ -1,8 +1,10 @@
 # SNAKE GAME
 A mini project in C language using ncurses.
-### * Credit: https://github.com/jvns/snake     
-| Badge  | Status |
-| ------------- | ------------- |
+> **Credit: https://github.com/jvns/snake**  
+
+ 
+ Badge  | Status 
+ ------------- | ------------- 
 | Build  | [![Linux C/C++ Build CI](https://github.com/sarthaknaithani/C_MiniProject_LTTS/actions/workflows/build.yml/badge.svg)](https://github.com/sarthaknaithani/C_MiniProject_LTTS/actions/workflows/build.yml)  |
 | Unity test  | [![Unit Testing - Unity](https://github.com/sarthaknaithani/C_MiniProject_LTTS/actions/workflows/Unity_test.yml/badge.svg)](https://github.com/sarthaknaithani/C_MiniProject_LTTS/actions/workflows/Unity_test.yml)  |
 | CI  | [![CI](https://github.com/sarthaknaithani/C_MiniProject_LTTS/actions/workflows/coverage.yml/badge.svg)](https://github.com/sarthaknaithani/C_MiniProject_LTTS/actions/workflows/coverage.yml)  |
