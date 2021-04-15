@@ -1,7 +1,7 @@
 #include "unity.h"
 #include <stdio.h>
-#include "../inc/backend.h"
-#include "../inc/frontend.h"
+#include "../inc/logic.h"
+#include "../inc/displayscore.h"
 
 void setUp(void)
 {
@@ -9,50 +9,50 @@ void setUp(void)
 void tearDown(void)
 {
 }
-void test_board(void)
+void test_game(void)
 {
-PointList *snake =create_cell(0,0);
-Board *board =create_board(snake,NULL,2,3);
-TEST_ASSERT_EQUAL(2,board->xmax);
-TEST_ASSERT_EQUAL(3,board->ymax);
-TEST_ASSERT_EQUAL(0,board->snake->x);
+plist *snake =create_point(0,0);
+Game *game =draw(snake,NULL,2,3);
+TEST_ASSERT_EQUAL(2,game->xmax);
+TEST_ASSERT_EQUAL(3,game->ymax);
+TEST_ASSERT_EQUAL(0,game->snake->x);
 
 }
 
 void test_back(void)
 {
-    PointList* snake = create_cell(2, 2);
-    snake->next = create_cell(2, 3);
-    Board* board = create_board(snake, NULL, 2, 2);
-    move_snake(board, DOWN);
-    TEST_ASSERT_EQUAL(2,board->snake->x);
-    TEST_ASSERT_EQUAL(2,board->snake->y);
+    plist* snake = create_point(2, 2);
+    snake->next = create_point(2, 3);
+    Game* game = draw(snake, NULL, 2, 2);
+    move_snake(game, DOWN);
+    TEST_ASSERT_EQUAL(2,game->snake->x);
+    TEST_ASSERT_EQUAL(2,game->snake->y);
 }
 
 void test_collision(void)
 {
-    PointList* snake = create_cell(2, 2);
-    snake->next = create_cell(2, 3);
-    snake->next->next = create_cell(3, 3);
-    snake->next->next->next = create_cell(3, 2);
-    Board* board = create_board(snake, NULL, 4, 4);
-    TEST_ASSERT_EQUAL(FAILURE,move_snake(board, RIGHT));
+    plist* snake = create_point(2, 2);
+    snake->next = create_point(2, 3);
+    snake->next->next = create_point(3, 3);
+    snake->next->next->next = create_point(3, 2);
+    Game* game = draw(snake, NULL, 4, 4);
+    TEST_ASSERT_EQUAL(FAILURE,move_snake(game, RIGHT));
 }
 void test_move_corner(void)
 {
 
-    PointList* snake = create_cell(0, 1);
-    Board* board = create_board(snake, NULL, 2, 2);
-    TEST_ASSERT_EQUAL(NULL,next_move(board, LEFT));
-    TEST_ASSERT_EQUAL(NULL,next_move(board, DOWN));
+    plist* snake = create_point(0, 1);
+    Game* game = draw(snake, NULL, 2, 2);
+    TEST_ASSERT_EQUAL(NULL,turn_next(game, LEFT));
+    TEST_ASSERT_EQUAL(NULL,turn_next(game, DOWN));
 
 }
 void test_move_left(void)
 {
 
-    PointList* snake = create_cell(1, 2);
-    Board* board = create_board(snake, NULL, 4, 4);
-    PointList *moved =next_move(board,LEFT);
+    plist* snake = create_point(1, 2);
+    Game* game = draw(snake, NULL, 4, 4);
+    plist *moved =turn_next(game,LEFT);
     TEST_ASSERT_EQUAL(0,moved->x);
     TEST_ASSERT_EQUAL(2,moved->y);
 
@@ -60,42 +60,42 @@ void test_move_left(void)
 void test_move_up(void)
 {
 
-    PointList* snake = create_cell(2, 2);
-    Board* board = create_board(snake, NULL, 4, 4);
-    PointList *moved =next_move(board,UP);
+    plist* snake = create_point(2, 2);
+    Game* game = draw(snake, NULL, 4, 4);
+    plist *moved =turn_next(game,UP);
     TEST_ASSERT_EQUAL(2,moved->x);
     TEST_ASSERT_EQUAL(1,moved->y);
 }
-void test_add_new_food(void)
+void test_add_new_fruit(void)
 {
-PointList* snake = create_cell(4, 2);
-    snake->next = create_cell(4,3);
-    PointList* foods = create_cell(3, 3);
-    Board* board = create_board(snake, foods, 20, 10);
-    add_new_food(board);
-    TEST_ASSERT_EQUAL(NULL,board->foods->next->next);
+plist* snake = create_point(4, 2);
+    snake->next = create_point(4,3);
+    plist* fruits = create_point(3, 3);
+    Game* game = draw(snake, fruits, 20, 10);
+    add_new_fruit(game);
+    TEST_ASSERT_EQUAL(NULL,game->fruits->next->next);
 }
-void test_create_random_cell(void)
+void test_create_random_point(void)
 {
-   PointList* cell1 = create_random_cell(20, 10);
-    PointList* cell2 = create_random_cell(20, 10);
-    TEST_ASSERT(!(cell1->x == cell2->x && cell1->y == cell2->y));
-    TEST_ASSERT(cell1->x < 20);
-    TEST_ASSERT(cell2->x < 20);
-    TEST_ASSERT(cell1->y < 10);
-    TEST_ASSERT(cell2->y < 10);
+   plist* point1 = create_random_point(20, 10);
+    plist* point2 = create_random_point(20, 10);
+    TEST_ASSERT(!(point1->x == point2->x && point1->y == point2->y));
+    TEST_ASSERT(point1->x < 20);
+    TEST_ASSERT(point2->x < 20);
+    TEST_ASSERT(point1->y < 10);
+    TEST_ASSERT(point2->y < 10);
 }
 int main(void)
 {
 UNITY_BEGIN();
-RUN_TEST(test_board);
+RUN_TEST(test_game);
 RUN_TEST(test_back);
 RUN_TEST(test_collision);
 RUN_TEST(test_move_corner);
 RUN_TEST(test_move_left);
 RUN_TEST(test_move_up);
-RUN_TEST(test_add_new_food);
-RUN_TEST(test_create_random_cell);
+RUN_TEST(test_add_new_fruit);
+RUN_TEST(test_create_random_point);
 return UNITY_END();
 }
 

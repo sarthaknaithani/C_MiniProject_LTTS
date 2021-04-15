@@ -1,6 +1,6 @@
         -:    0:Source:main.c
-        -:    1:#include "inc/backend.h"
-        -:    2:#include "inc/frontend.h"
+        -:    1:#include "inc/logic.h"
+        -:    2:#include "inc/displayscore.h"
         -:    3:#include <ncurses.h>
         -:    4:
         1:    5:int main() {
@@ -20,14 +20,14 @@
         1:   15-block  2
         1:   15-block  3
     %%%%%:   15-block  4
-        1:   16:  enum Direction dir = RIGHT;
+        1:   16:  enum command com = RIGHT;
         -:   17:
-        1:   18:  Board* board = create_board(create_snake(), NULL, xmax, ymax);
+        1:   18:  Game* game = draw(create_snake(), NULL, xmax, ymax);
         1:   18-block  0
         -:   19:  int i;
         7:   20:  for (i = 0; i < 6; i++) {
         7:   20-block  0
-        6:   21:    add_new_food(board);
+        6:   21:    add_new_fruit(game);
         6:   21-block  0
         -:   22:  }
         -:   23:
@@ -35,11 +35,11 @@
        22:   24-block  0
        23:   25:    clear();
        23:   25-block  0
-       23:   26:    display_points(board->snake, ACS_BLOCK);
-       23:   27:    display_points(board->foods, ACS_DIAMOND);
+       23:   26:    display_points(game->snake, ACS_BLOCK);
+       23:   27:    display_points(game->fruits, ACS_DIAMOND);
        23:   28:    refresh();
-       23:   29:    dir = get_next_move(dir);
-       23:   30:    enum Status status = move_snake(board, dir);
+       23:   29:    com = get_turn_next(com);
+       23:   30:    enum status status = move_snake(game, com);
        23:   31:    if (status == FAILURE) break;
         1:   31-block  0
         -:   32:  }
