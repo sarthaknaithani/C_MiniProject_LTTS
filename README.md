@@ -10,6 +10,7 @@ A mini project in C language using ncurses.
 | CI  | [![CI](https://github.com/sarthaknaithani/C_MiniProject_LTTS/actions/workflows/coverage.yml/badge.svg)](https://github.com/sarthaknaithani/C_MiniProject_LTTS/actions/workflows/coverage.yml)  |
 | Git Inspector  | [![Contribution Check - Git Inspector](https://github.com/sarthaknaithani/C_MiniProject_LTTS/actions/workflows/git_inspector.yml/badge.svg)](https://github.com/sarthaknaithani/C_MiniProject_LTTS/actions/workflows/git_inspector.yml)  |
 | CPP Check  | [![Code Quality - Static Code - Cppcheck](https://github.com/sarthaknaithani/C_MiniProject_LTTS/actions/workflows/cpp_check.yml/badge.svg)](https://github.com/sarthaknaithani/C_MiniProject_LTTS/actions/workflows/cpp_check.yml)  |
+| CPP Check  | [![Codacy Badge](https://app.codacy.com/project/badge/Grade/dfcffbfad3d541a5bf75229aa48bc66a)](https://www.codacy.com/gh/sarthaknaithani/C_MiniProject_LTTS/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=sarthaknaithani/C_MiniProject_LTTS&amp;utm_campaign=Badge_Grade) |
 
 ### Changes made that are more than 100 lines
 * Make the whole new test file in unity with 8 testcases covering all corner test as well
