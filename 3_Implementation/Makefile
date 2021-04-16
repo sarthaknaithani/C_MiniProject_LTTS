@@ -40,8 +40,7 @@ test: $(SRC) $(TEST_SRC)
 
 
 coverage:${PROJECT_NAME}
-	gcc -fprofile-arcs -ftest-coverage src/logic.c src/displayscore.c main.c $(INC) -o $(call FixPath,$(BUILD_DIR)/$(TEST_PROJ_NAME).$(EXEC)) -lncurses
-	$(call FixPath,$(BUILD_DIR)/$(TEST_PROJ_NAME).$(EXEC))
+	
 	gcov -a main.c
 
 doc:
