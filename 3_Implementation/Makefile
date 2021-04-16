@@ -35,8 +35,8 @@ run: all
 	./snake
 
 test: $(SRC) $(TEST_SRC)
-	gcc -lm $^ $(INC) -o $(call FixPath,$(BUILD_DIR)/$(TEST_PROJ_NAME).$(EXEC)) 
-	./Build/tests.out
+	gcc -lm $^ $(INC) -o $(call FixPath,$(TEST_PROJ_NAME).$(EXEC)) 
+	./tests.out
 
 
 coverage:${PROJECT_NAME}
