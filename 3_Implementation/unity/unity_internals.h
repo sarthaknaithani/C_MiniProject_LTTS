@@ -544,7 +544,7 @@ void UnityPrintFloat(const UNITY_DOUBLE input_number);
  * Test Assertion Functions
  *-------------------------------------------------------
  *  Use the macros below this section instead of calling
- *  these directly. The macros have a consistent naming
+ *  these comectly. The macros have a consistent naming
  *  convention and will pull in file and line information
  *  for you. */
 

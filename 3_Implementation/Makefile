@@ -3,7 +3,7 @@ TEST_PROJ_NAME = tests
 
 BUILD_DIR = Build
 
-SRC = src/backend.c
+SRC = src/logic.c
 
 TEST_SRC = test/tests.c\
 unity/unity.c
@@ -29,7 +29,7 @@ endif
 
 all:$(BUILD_DIR)
 	
-	gcc -o snake main.c src/backend.c src/frontend.c -lncurses
+	gcc -o snake main.c src/logic.c src/displayscore.c -lncurses
 
 run: all
 	./snake
@@ -40,18 +40,18 @@ test: $(SRC) $(TEST_SRC)
 
 
 coverage:${PROJECT_NAME}
-	gcc -fprofile-arcs -ftest-coverage src/backend.c src/frontend.c main.c $(INC) -o $(call FixPath,$(BUILD_DIR)/$(TEST_PROJ_NAME).$(EXEC)) -lncurses
+	gcc -fprofile-arcs -ftest-coverage src/logic.c src/displayscore.c main.c $(INC) -o $(call FixPath,$(BUILD_DIR)/$(TEST_PROJ_NAME).$(EXEC)) -lncurses
 	$(call FixPath,$(BUILD_DIR)/$(TEST_PROJ_NAME).$(EXEC))
 	gcov -a $(SRC)
 
 doc:
 	make -C doc
 $(BUILD_DIR):
-	mkdir $(BUILD_DIR)
+	mkcom $(BUILD_DIR)
 
 clean:
 	$(RM) $(call FixPath,$(BUILD_DIR)/*)
 	make clean 
-	rmdir $(BUILD_DIR) 
+	rmcom $(BUILD_DIR) 
 
 
