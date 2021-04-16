@@ -49,8 +49,9 @@ $(BUILD_DIR):
 	mkcom $(BUILD_DIR)
 
 clean:
-	$(RM) $(call FixPath,$(BUILD_DIR)/*)
-	make clean 
-	rmcom $(BUILD_DIR) 
+	$(RM) *.$(EXEC)
+	$(RM) *.gcda
+	$(RM) *.gcno
+	$(RM) *.c.gcov
 
 
