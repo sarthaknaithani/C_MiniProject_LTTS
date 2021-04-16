@@ -1,8 +1,6 @@
 PROJ_NAME = snake
 TEST_PROJ_NAME = tests
 
-BUILD_DIR = Build
-
 SRC = src/logic.c
 
 TEST_SRC = test/tests.c\
