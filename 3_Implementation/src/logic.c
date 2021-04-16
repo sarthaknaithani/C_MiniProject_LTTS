@@ -1,11 +1,26 @@
+/**
+ * @file logic.c
+ * @author your name (you@domain.com)
+ * @brief 
+ * @version 0.1
+ * @date 2021-04-16
+ * 
+ * @copyright Copyright (c) 2021
+ * 
+ */
 #include "../inc/logic.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
 #include <time.h>
 
-/*
- * Removes from the list or returns false
+/**
+ * @brief 
+ * 
+ * @param elt 
+ * @param list 
+ * @return true 
+ * @return false 
  */
 bool delete_element(plist* elt, plist** list) {
   plist *currP, *prevP;
@@ -26,7 +41,13 @@ bool delete_element(plist* elt, plist** list) {
   }
   return false;
 }
-
+/**
+ * @brief 
+ * 
+ * @param game 
+ * @param com 
+ * @return enum status 
+ */
 enum status move_snake(Game* game, enum command com) {
   // Create a new beginning. Check boundaries.
   plist* beginning = turn_next(game, com);
@@ -72,12 +93,25 @@ enum status move_snake(Game* game, enum command com) {
 
   return SUCCESS;
 }
-
+/**
+ * @brief 
+ * 
+ * @param point1 
+ * @param point2 
+ * @return true 
+ * @return false 
+ */
 bool is_moved(plist* point1, plist* point2) {
   return point1->x == point2->x && point1->y == point2->y;
 }
 
-
+/**
+ * @brief 
+ * 
+ * @param game 
+ * @param com 
+ * @return plist* 
+ */
 plist* turn_next(Game* game, enum command com) {
   plist* snake = game->snake;
   int new_x = snake->x;
@@ -102,11 +136,21 @@ plist* turn_next(Game* game, enum command com) {
     return create_point(new_x, new_y);
   }
 }
-
+/**
+ * @brief Create a random point object
+ * 
+ * @param xmax 
+ * @param ymax 
+ * @return plist* 
+ */
 plist* create_random_point(int xmax, int ymax) {
   return create_point(rand() % xmax, rand() % ymax);
 }
-
+/**
+ * @brief 
+ * 
+ * @param game 
+ */
 void add_new_fruit(Game* game) {
   plist* new_fruit;
   do {
@@ -115,7 +159,14 @@ void add_new_fruit(Game* game) {
   new_fruit->next = game->fruits;
   game->fruits = new_fruit;
 }
-
+/**
+ * @brief 
+ * 
+ * @param point 
+ * @param list 
+ * @return true 
+ * @return false 
+ */
 bool curr_list(plist* point, plist* list) {
   plist* s = list;
   while (s) {
@@ -126,7 +177,13 @@ bool curr_list(plist* point, plist* list) {
   }
   return false;
 }
-
+/**
+ * @brief Create a point object
+ * 
+ * @param x 
+ * @param y 
+ * @return plist* 
+ */
 plist* create_point(int x, int y) {
   plist* point = malloc(sizeof(*point));
   point->x = x;
@@ -134,7 +191,15 @@ plist* create_point(int x, int y) {
   point->next = NULL;
   return point;
 }
-
+/**
+ * @brief 
+ * 
+ * @param snake 
+ * @param fruits 
+ * @param xmax 
+ * @param ymax 
+ * @return Game* 
+ */
 Game* draw(plist* snake, plist* fruits, int xmax, int ymax) {
   Game* game = malloc(sizeof(*game));
   game->fruits = fruits;
@@ -143,7 +208,11 @@ Game* draw(plist* snake, plist* fruits, int xmax, int ymax) {
   game->ymax = ymax;
   return game;
 }
-
+/**
+ * @brief Create a snake object
+ * 
+ * @return plist* 
+ */
 plist* create_snake() {
   plist* a = create_point(2,3);
   plist* b = create_point(2,2);

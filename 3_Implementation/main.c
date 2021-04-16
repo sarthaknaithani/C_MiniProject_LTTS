@@ -1,3 +1,13 @@
+/**
+ * @file main.c
+ * @author Sarthak Naithani
+ * @brief 
+ * @version 0.1
+ * @date 2021-04-16
+ * 
+ * @copyright Copyright (c) 2021
+ * 
+ */
 #include "inc/logic.h"
 #include "inc/displayscore.h"
 #include <ncurses.h>

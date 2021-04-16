@@ -1,14 +1,31 @@
+/**
+ * @file tests.c
+ * @author your name (you@domain.com)
+ * @brief 
+ * @version 0.1
+ * @date 2021-04-16
+ * 
+ * @copyright Copyright (c) 2021
+ * 
+ */
 #include "unity.h"
 #include <stdio.h>
 #include "../inc/logic.h"
 #include "../inc/displayscore.h"
-
+/**
+ * @brief Set the Up object
+ * 
+ */
 void setUp(void)
 {
 }
 void tearDown(void)
 {
 }
+/**
+ * @brief to test the points created are correct or not
+ * 
+ */
 void test_game(void)
 {
 plist *snake =create_point(0,0);
@@ -18,7 +35,10 @@ TEST_ASSERT_EQUAL(3,game->ymax);
 TEST_ASSERT_EQUAL(0,game->snake->x);
 
 }
-
+/**
+ * @brief to test snake correctly moves down or not
+ * 
+ */
 void test_back(void)
 {
     plist* snake = create_point(2, 2);
@@ -28,7 +48,10 @@ void test_back(void)
     TEST_ASSERT_EQUAL(2,game->snake->x);
     TEST_ASSERT_EQUAL(2,game->snake->y);
 }
-
+/**
+ * @brief collision testcase
+ * 
+ */
 void test_collision(void)
 {
     plist* snake = create_point(2, 2);
@@ -38,6 +61,10 @@ void test_collision(void)
     Game* game = draw(snake, NULL, 4, 4);
     TEST_ASSERT_EQUAL(FAILURE,move_snake(game, RIGHT));
 }
+/**
+ * @brief to test to not move corner diagonally
+ * 
+ */
 void test_move_corner(void)
 {
 
@@ -47,6 +74,10 @@ void test_move_corner(void)
     TEST_ASSERT_EQUAL(NULL,turn_next(game, DOWN));
 
 }
+/**
+ * @brief to test snake correctly moves left
+ * 
+ */
 void test_move_left(void)
 {
 
@@ -57,6 +88,10 @@ void test_move_left(void)
     TEST_ASSERT_EQUAL(2,moved->y);
 
 }
+/**
+ * @brief to test snake correctly moves left
+ * 
+ */
 void test_move_up(void)
 {
 
@@ -66,6 +101,10 @@ void test_move_up(void)
     TEST_ASSERT_EQUAL(2,moved->x);
     TEST_ASSERT_EQUAL(1,moved->y);
 }
+/**
+ * @brief to test the generation of new fruit
+ * 
+ */
 void test_add_new_fruit(void)
 {
 plist* snake = create_point(4, 2);
@@ -75,6 +114,10 @@ plist* snake = create_point(4, 2);
     add_new_fruit(game);
     TEST_ASSERT_EQUAL(NULL,game->fruits->next->next);
 }
+/**
+ * @brief to test snake correctly genrates a random point
+ * 
+ */
 void test_create_random_point(void)
 {
    plist* point1 = create_random_point(20, 10);
