@@ -1,8 +1,4 @@
 # Architecture
 
-* Add UML Diagrams
-* For information about UML Diagrams refer: [UML Diagrams](https://www.uml-diagrams.org/uml-25-diagrams.html)
-## Tools 
-* [Draw.io](https://app.diagrams.net/)
-* [Creately](https://app.creately.com/diagram/create)
-* or any other free tools
+# Behavioral Diagram
+![](https://user-images.githubusercontent.com/39693903/114682195-7e6b1180-9d2c-11eb-9537-9a178b7f62bc.jpg)
