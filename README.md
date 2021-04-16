@@ -11,6 +11,7 @@ A mini project in C language using ncurses.
 | CI  | [![CI](https://github.com/sarthaknaithani/C_MiniProject_LTTS/actions/workflows/coverage.yml/badge.svg)](https://github.com/sarthaknaithani/C_MiniProject_LTTS/actions/workflows/coverage.yml)  |
 | Git Inspector  | [![Contribution Check - Git Inspector](https://github.com/sarthaknaithani/C_MiniProject_LTTS/actions/workflows/git_inspector.yml/badge.svg)](https://github.com/sarthaknaithani/C_MiniProject_LTTS/actions/workflows/git_inspector.yml)  |
 | CPP Check  | [![Code Quality - Static Code - Cppcheck](https://github.com/sarthaknaithani/C_MiniProject_LTTS/actions/workflows/cpp_check.yml/badge.svg)](https://github.com/sarthaknaithani/C_MiniProject_LTTS/actions/workflows/cpp_check.yml)  |
+| Code Coverage | [![CI-Coverage](https://github.com/sarthaknaithani/C_MiniProject_LTTS/actions/workflows/codecoverage.yml/badge.svg)](https://github.com/sarthaknaithani/C_MiniProject_LTTS/actions/workflows/codecoverage.yml) |
 
 
 ### Changes made that are more than 100 lines
