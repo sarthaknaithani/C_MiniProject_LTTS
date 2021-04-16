@@ -9,5 +9,5 @@ H_03|	To test the functions for initializing the game| 		 struct pointer|int  |	
 Test ID |	Description |	Exp I/P |	Exp O/P |	Type Of Test
 ---------- | ---------- |  -------------- | -------- | -------
 L_01|	To test implementation of function test_move_corner, test_move_left, test_move_up |	enum command|	struct pointer *plist|	Technical
-L_02|	To test the functions of generation of fruits|		int ,int| struct pointer *plist|	Technical
-L_03|	To test the functions for initializing the game| 		 struct pointer *game|int, int  |	Technical
+L_02|	To test the functions function test_add_new_fruit, test_create_random_point |		int ,int| struct pointer *plist|	Technical
+L_03|	To test the functions test_game | 		 struct pointer *game|int, int  |	Technical
